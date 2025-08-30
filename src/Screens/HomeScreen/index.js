@@ -63,7 +63,11 @@ const HomeScreen = () => {
       flex: 1,
       backgroundColor: 'white',
       paddingHorizontal: 20,
-      paddingTop: insets.top,
+      paddingTop: insets.top + 20,
+    },
+
+    flatlistContainer: {
+      paddingBottom: 100,
     },
 
     flatlistContentContainer: {
@@ -104,6 +108,7 @@ const HomeScreen = () => {
         keyExtractor={item => item.id}
         numColumns={2}
         columnWrapperStyle={styles.flatlistContentContainer}
+        contentContainerStyle={styles.flatlistContainer}
         ListEmptyComponent={renderEmpty}
         showsVerticalScrollIndicator={false}
       />

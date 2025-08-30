@@ -23,10 +23,8 @@ const styles = StyleSheet.create({
   container: {},
 
   subContainer: {
-    // paddingVertical: 18,
     paddingHorizontal: 20,
     backgroundColor: '#7676801F',
-    // backgroundColor: 'red',
     padding: 10,
     borderRadius: 100,
     marginVertical: 10,
