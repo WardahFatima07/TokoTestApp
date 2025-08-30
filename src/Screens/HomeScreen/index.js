@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ProfileItemContainer from '../../Components/ProfileItemContaienr';
+import SearchInput from '../../Components/SearchInput';
 
 const HomeScreen = () => {
   const insets = useSafeAreaInsets();
@@ -87,6 +88,8 @@ const HomeScreen = () => {
     return (
       <View>
         <Text style={styles.headerTextStyle}>List of Users</Text>
+
+        <SearchInput placeholder="Search" returnKeyType="search" />
       </View>
     );
   };
