@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
 const SearchInput = props => {
-  const { placeholder, returnKeyType } = props;
+  const { placeholder, returnKeyType, value, onChangeText } = props;
 
   return (
     <View style={styles.subContainer}>
@@ -11,6 +11,8 @@ const SearchInput = props => {
         placeholder={placeholder}
         placeholderTextColor={'grey'}
         returnKeyType={returnKeyType}
+        value={value}
+        onChangeText={onChangeText}
         style={styles.input}
       />
     </View>
@@ -21,12 +23,14 @@ const styles = StyleSheet.create({
   container: {},
 
   subContainer: {
-    paddingVertical: 13,
+    // paddingVertical: 18,
     paddingHorizontal: 20,
     backgroundColor: '#7676801F',
+    // backgroundColor: 'red',
     padding: 10,
     borderRadius: 100,
     marginVertical: 10,
+    height: 40,
   },
 
   input: {
