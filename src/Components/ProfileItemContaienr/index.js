@@ -5,7 +5,11 @@ const ProfileItemContainer = props => {
   const { name, image, profileLink, handleProfileLink } = props;
 
   return (
-    <TouchableOpacity activeOpacity={0.9} style={styles.container}>
+    <TouchableOpacity
+      activeOpacity={0.9}
+      style={styles.container}
+      onPress={handleProfileLink}
+    >
       <Image source={{ uri: image }} style={styles.image} />
 
       <Text style={styles.text}>{name}</Text>

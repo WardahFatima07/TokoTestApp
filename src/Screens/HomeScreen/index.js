@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ProfileItemContainer from '../../Components/ProfileItemContaienr';
 import SearchInput from '../../Components/SearchInput';
+import ProfileViewPopup from '../../Components/Popups/ProfileViewPopup';
 
 const HomeScreen = () => {
   const insets = useSafeAreaInsets();
+
+  const modalRef = useRef(null);
 
   const dataArr = [
     {
@@ -82,7 +85,9 @@ const HomeScreen = () => {
     },
   ];
 
-  const handleProfileLink = () => {};
+  const handleProfileLink = item => {
+    modalRef?.current?.show(item);
+  };
 
   const renderHeader = () => {
     return (
@@ -108,7 +113,7 @@ const HomeScreen = () => {
         name={item.login?.toUpperCase()}
         image={item.avatar_url}
         profileLink={item.html_url}
-        handleProfileLink={handleProfileLink}
+        handleProfileLink={() => handleProfileLink(item)}
       />
     );
   };
@@ -153,6 +158,11 @@ const HomeScreen = () => {
         columnWrapperStyle={styles.flatlistContentContainer}
         ListEmptyComponent={renderEmpty}
         showsVerticalScrollIndicator={false}
+      />
+
+      <ProfileViewPopup
+        reference={modalRef}
+        // image={} name={}
       />
     </View>
   );
